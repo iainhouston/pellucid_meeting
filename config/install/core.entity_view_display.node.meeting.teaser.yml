@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.meeting.body
+    - field.field.node.meeting.field_meeting_date
+    - field.field.node.meeting.field_meeting_place
+    - field.field.node.meeting.field_meeting_type
+    - node.type.meeting
+  module:
+    - user
+id: node.meeting.teaser
+targetEntityType: node
+bundle: meeting
+mode: teaser
+content:
+  links:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  body: true
+  field_meeting_date: true
+  field_meeting_place: true
+  field_meeting_type: true

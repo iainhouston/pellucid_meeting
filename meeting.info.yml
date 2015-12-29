@@ -1,0 +1,57 @@
+name: Meeting
+description: 'Provide Meeting content type and related configuration. A meeting (usually) or some other event of the smaller authority'
+type: module
+core: 8.x
+dependencies:
+  - datetime
+  - meeting
+  - menu_ui
+  - node
+  - path
+  - pellucid
+  - taxonomy
+  - text
+  - user
+config:
+  - node.type.meeting
+  - field.field.node.meeting.field_meeting_type
+  - core.entity_form_display.node.meeting.default
+  - core.entity_view_display.node.meeting.default
+  - field.field.node.meeting.field_meeting_date
+  - field.field.node.meeting.body
+  - core.entity_view_display.node.meeting.teaser
+  - field.storage.node.field_meeting_type
+  - field.storage.node.field_meeting_date
+  - node.type.meeting
+  - field.field.node.meeting.field_meeting_type
+  - core.entity_form_display.node.meeting.default
+  - core.entity_view_display.node.meeting.default
+  - core.entity_view_display.node.meeting.teaser
+  - field.field.node.meeting.field_meeting_date
+  - field.field.node.meeting.body
+  - field.storage.node.field_meeting_type
+  - field.storage.node.field_meeting_date
+  - node.type.meeting
+  - field.field.node.meeting.field_meeting_type
+  - core.entity_form_display.node.meeting.default
+  - core.entity_view_display.node.meeting.default
+  - core.entity_view_display.node.meeting.teaser
+  - field.field.node.meeting.field_meeting_place
+  - field.field.node.meeting.field_meeting_date
+  - field.field.node.meeting.body
+  - field.storage.node.field_meeting_type
+  - field.storage.node.field_meeting_place
+  - field.storage.node.field_meeting_date
+  - node.type.meeting
+  - field.field.node.meeting.field_meeting_type
+  - core.entity_form_display.node.meeting.default
+  - core.entity_view_display.node.meeting.default
+  - core.entity_view_display.node.meeting.teaser
+  - field.field.node.meeting.field_meeting_place
+  - field.field.node.meeting.field_meeting_date
+  - field.field.node.meeting.body
+  - field.storage.node.field_meeting_type
+  - field.storage.node.field_meeting_place
+  - field.storage.node.field_meeting_date
+  - field.storage.node.field_meeting
+features: true

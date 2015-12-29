@@ -1,0 +1,43 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements HOOK_form_BASE_FORM_ID_alter
+ * for Meeting Node forms
+ * @param $form
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ * @param $form_id
+ */
+function meeting_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  switch ($form_id) {
+    case "node_meeting_form":
+    case "node_meeting_edit_form":
+      _setup_meeting_entity_builder($form);
+      break;
+  }
+}
+
+function _setup_meeting_entity_builder(&$form) {
+  $form['title']['#access'] = FALSE;
+  $form['#entity_builders'][] = 'meeting_node_builder';
+}
+
+/**
+ * entity_builder for new and changed Meeting Nodes
+ * @param $entity_type
+ * @param NodeInterface $node
+ * @param $form
+ * @param FormStateInterface $form_state
+ */
+function meeting_node_builder($entity_type, NodeInterface $node, &$form, FormStateInterface $form_state) {
+  $date_of_meeting = $node->field_meeting_date->date;
+  $type_of_meeting_id = $form_state->getValue('field_meeting_type')[0]['target_id'];
+  $referenced_tag = \Drupal::entityTypeManager()
+    ->getStorage('taxonomy_term')
+    ->load($type_of_meeting_id);
+  $name_of_meeting = $referenced_tag->name->value;
+  $node->setTitle($name_of_meeting.' on '.$date_of_meeting->format('l, j F Y'));
+}

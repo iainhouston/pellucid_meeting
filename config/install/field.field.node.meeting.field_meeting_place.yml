@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meeting_place
+    - node.type.meeting
+    - taxonomy.vocabulary.tags
+id: node.meeting.field_meeting_place
+field_name: field_meeting_place
+entity_type: node
+bundle: meeting
+label: 'Meeting place'
+description: "<p>To use an previously known Meeting place: start typing in the autocomplete text box.</p>\r\n<p>To create a new Meeting place: type anew into the autocomplete text box.</p>"
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: _none
+    auto_create: true
+field_type: entity_reference

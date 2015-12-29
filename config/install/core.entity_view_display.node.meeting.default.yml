@@ -1,0 +1,51 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.meeting.body
+    - field.field.node.meeting.field_meeting_date
+    - field.field.node.meeting.field_meeting_place
+    - field.field.node.meeting.field_meeting_type
+    - node.type.meeting
+  module:
+    - datetime
+    - text
+    - user
+id: node.meeting.default
+targetEntityType: node
+bundle: meeting
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+  field_meeting_date:
+    weight: 1
+    label: above
+    settings:
+      format_type: medium
+      timezone_override: ''
+    third_party_settings: {  }
+    type: datetime_default
+  field_meeting_place:
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_meeting_type:
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  links:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }
