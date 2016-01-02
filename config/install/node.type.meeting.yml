@@ -10,7 +10,7 @@ third_party_settings:
     parent: 'main:'
 name: Meeting
 type: meeting
-description: 'A meeting (usually) or some other event of the smaller authority'
+description: 'A meeting or some other significant event of the smaller authority. A summons to a meeting can be emailed to Councillors and others.'
 help: ''
 new_revision: false
 preview_mode: 1

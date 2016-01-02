@@ -4,9 +4,7 @@ dependencies:
   config:
     - field.storage.node.field_meeting_type
     - node.type.meeting
-    - taxonomy.vocabulary.tags
-  content:
-    - 'taxonomy_term:tags:a7407e32-009a-413b-9c00-bd4db17ef2b7'
+    - taxonomy.vocabulary.meeting_type
 id: node.meeting.field_meeting_type
 field_name: field_meeting_type
 entity_type: node
@@ -15,15 +13,13 @@ label: 'Meeting type'
 description: "<p>To use an previously known Meeting type: start typing in the autocomplete text box.</p>\r\n<p>To create a new Meeting type: type anew into the autocomplete text box.</p>"
 required: true
 translatable: false
-default_value:
-  -
-    target_uuid: a7407e32-009a-413b-9c00-bd4db17ef2b7
+default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      tags: tags
+      meeting_type: meeting_type
     sort:
       field: _none
     auto_create: true

@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Meeting Place'
+vid: meeting_place
+description: 'Either the physical location of the Meeting or "None" '
+hierarchy: 0
+weight: 0

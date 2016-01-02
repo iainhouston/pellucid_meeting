@@ -4,22 +4,26 @@ dependencies:
   config:
     - field.storage.node.field_meeting_place
     - node.type.meeting
-    - taxonomy.vocabulary.tags
+    - taxonomy.vocabulary.meeting_place
+  content:
+    - 'taxonomy_term:meeting_place:440dc1de-2783-4cba-a704-4d56d4993d58'
 id: node.meeting.field_meeting_place
 field_name: field_meeting_place
 entity_type: node
 bundle: meeting
 label: 'Meeting place'
-description: "<p>To use an previously known Meeting place: start typing in the autocomplete text box.</p>\r\n<p>To create a new Meeting place: type anew into the autocomplete text box.</p>"
+description: '<p>Choose from the dry-down list</p>'
 required: true
 translatable: false
-default_value: {  }
+default_value:
+  -
+    target_uuid: 440dc1de-2783-4cba-a704-4d56d4993d58
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
     target_bundles:
-      tags: tags
+      meeting_place: meeting_place
     sort:
       field: _none
     auto_create: true

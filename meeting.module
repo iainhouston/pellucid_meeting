@@ -13,7 +13,9 @@ use Drupal\node\NodeInterface;
 function meeting_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
 
   switch ($form_id) {
+    // Node creation form
     case "node_meeting_form":
+    // or Node edit form
     case "node_meeting_edit_form":
       _setup_meeting_entity_builder($form);
       break;
@@ -33,6 +35,7 @@ function _setup_meeting_entity_builder(&$form) {
  * @param FormStateInterface $form_state
  */
 function meeting_node_builder($entity_type, NodeInterface $node, &$form, FormStateInterface $form_state) {
+  // Construct the title from the type and date of the meeting
   $date_of_meeting = $node->field_meeting_date->date;
   $type_of_meeting_id = $form_state->getValue('field_meeting_type')[0]['target_id'];
   $referenced_tag = \Drupal::entityTypeManager()
