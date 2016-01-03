@@ -6,7 +6,9 @@ dependencies:
   - datetime
   - meeting
   - menu_ui
+  - minutes
   - node
+  - path
   - taxonomy
   - text
   - user

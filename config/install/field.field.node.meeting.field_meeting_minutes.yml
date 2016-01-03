@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meeting_minutes
+    - node.type.meeting
+    - node.type.minutes
+id: node.meeting.field_meeting_minutes
+field_name: field_meeting_minutes
+entity_type: node
+bundle: meeting
+label: Minutes
+description: 'Enter the name of the <em>Minutes</em> for this <em>Meeting</em> when they are ready to be seen by anybody visiting the website.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      minutes: minutes
+    sort:
+      field: _none
+field_type: entity_reference
