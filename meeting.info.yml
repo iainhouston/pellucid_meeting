@@ -4,11 +4,13 @@ type: module
 core: 8.x
 dependencies:
   - datetime
+  - diff
   - meeting
   - menu_ui
   - minutes
   - node
   - path
+  - simplenews
   - taxonomy
   - text
   - user

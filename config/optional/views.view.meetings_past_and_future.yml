@@ -3,13 +3,9 @@ status: true
 dependencies:
   config:
     - node.type.meeting
-    - taxonomy.vocabulary.meeting_type
-  content:
-    - 'taxonomy_term:meeting_type:465a5f01-359d-4287-a607-7d91279c96ab'
   module:
     - datetime
     - node
-    - taxonomy
     - user
 id: meetings_past_and_future
 label: 'Meetings past and future'
@@ -201,50 +197,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        field_meeting_type_target_id:
-          id: field_meeting_type_target_id
-          table: node__field_meeting_type
-          field: field_meeting_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            - 8
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: textfield
-          limit: true
-          vid: meeting_type
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
       sorts:
         created:
           id: created
@@ -279,7 +231,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -308,13 +259,29 @@ display:
           plugin_id: text
       defaults:
         header: false
+        sorts: false
+      sorts:
+        created:
+          id: created
+          table: node_field_data
+          field: created
+          relationship: none
+          group_type: group
+          admin_label: ''
+          order: ASC
+          exposed: false
+          expose:
+            label: ''
+          granularity: second
+          entity_type: node
+          entity_field: created
+          plugin_id: date
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
@@ -394,50 +361,6 @@ display:
             default_group_multiple: {  }
             group_items: {  }
           plugin_id: datetime
-        field_meeting_type_target_id:
-          id: field_meeting_type_target_id
-          table: node__field_meeting_type
-          field: field_meeting_type_target_id
-          relationship: none
-          group_type: group
-          admin_label: ''
-          operator: or
-          value:
-            - 8
-          group: 1
-          exposed: false
-          expose:
-            operator_id: ''
-            label: ''
-            description: ''
-            use_operator: false
-            operator: ''
-            identifier: ''
-            required: false
-            remember: false
-            multiple: false
-            remember_roles:
-              authenticated: authenticated
-            reduce: false
-          is_grouped: false
-          group_info:
-            label: ''
-            description: ''
-            identifier: ''
-            optional: true
-            widget: select
-            multiple: false
-            remember: false
-            default_group: All
-            default_group_multiple: {  }
-            group_items: {  }
-          reduce_duplicates: false
-          type: textfield
-          limit: true
-          vid: meeting_type
-          hierarchy: false
-          error_message: true
-          plugin_id: taxonomy_index_tid
       filter_groups:
         operator: AND
         groups:
@@ -462,7 +385,6 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url.query_args
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }

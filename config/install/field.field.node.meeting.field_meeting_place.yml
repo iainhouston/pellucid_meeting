@@ -12,7 +12,7 @@ field_name: field_meeting_place
 entity_type: node
 bundle: meeting
 label: 'Meeting place'
-description: '<p>Choose from the dry-down list</p>'
+description: '<p>Choose from the drop-down list</p>'
 required: true
 translatable: false
 default_value:

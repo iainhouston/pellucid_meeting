@@ -10,7 +10,7 @@ id: node.meeting.field_meeting_date
 field_name: field_meeting_date
 entity_type: node
 bundle: meeting
-label: 'Meeting date'
+label: 'Meeting time'
 description: ''
 required: true
 translatable: false

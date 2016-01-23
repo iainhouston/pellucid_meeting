@@ -5,9 +5,10 @@ dependencies:
     - core.entity_view_mode.node.teaser
     - field.field.node.minutes.body
     - field.field.node.minutes.field_minutes_meeting
+    - field.field.node.minutes.field_minutes_status
+    - field.field.node.minutes.simplenews_issue
     - node.type.minutes
   module:
-    - text
     - user
 _core:
   default_config_hash: 9PC_zNQw42H2nCZLMemdd_rWH2I4i9jz_j-gAgM947k
@@ -16,14 +17,18 @@ targetEntityType: node
 bundle: minutes
 mode: teaser
 content:
-  body:
-    label: hidden
-    type: text_summary_or_trimmed
-    weight: 101
+  field_minutes_status:
+    type: entity_reference_label
+    weight: 1
+    label: inline
     settings:
-      trim_length: 600
+      link: false
     third_party_settings: {  }
   links:
-    weight: 100
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
 hidden:
+  body: true
   field_minutes_meeting: true
+  simplenews_issue: true
