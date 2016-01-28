@@ -1,0 +1,40 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.diff
+    - field.field.node.minutes.body
+    - field.field.node.minutes.field_minutes_meeting
+    - field.field.node.minutes.field_minutes_status
+    - node.type.minutes
+  module:
+    - text
+    - user
+id: node.minutes.diff
+targetEntityType: node
+bundle: minutes
+mode: diff
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+  field_minutes_meeting:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+  field_minutes_status:
+    type: entity_reference_entity_view
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+hidden:
+  links: true
