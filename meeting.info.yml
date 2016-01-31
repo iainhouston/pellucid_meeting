@@ -3,8 +3,10 @@ description: 'Provide Meeting content type and related configuration. A meeting 
 type: module
 core: 8.x
 dependencies:
+  - block
   - datetime
   - diff
+  - field
   - meeting
   - menu_ui
   - minutes
@@ -15,4 +17,3 @@ dependencies:
   - text
   - user
   - views
-features: true
