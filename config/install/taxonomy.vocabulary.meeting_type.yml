@@ -1,8 +1,0 @@
-langcode: en
-status: true
-dependencies: {  }
-name: 'Meeting type'
-vid: meeting_type
-description: 'A real meeting (like a Parish Council meeting); or a virtual one (like an End of Year report)'
-hierarchy: 0
-weight: 0
