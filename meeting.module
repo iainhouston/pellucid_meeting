@@ -15,16 +15,27 @@ function meeting_form_node_form_alter(&$form, FormStateInterface $form_state, $f
   switch ($form_id) {
     // Node creation form
     case "node_meeting_form":
-    // or Node edit form
-    case "node_meeting_edit_form":
       _setup_meeting_entity_builder($form);
       break;
+
+    // Node edit form
+    case "node_meeting_edit_form":
+      _hide_immutable_fields($form);
+      break;
   }
+
 }
 
 function _setup_meeting_entity_builder(&$form) {
   $form['title']['#access'] = FALSE;
   $form['#entity_builders'][] = 'meeting_node_builder';
+}
+
+function _hide_immutable_fields(&$form) {
+// These form the title .. so it's too late to change it now!
+  $form['title']['#access'] = FALSE;
+  $form['field_meeting_date']['#access'] = FALSE;
+  $form['field_meeting_type']['#access'] = FALSE;
 }
 
 /**
@@ -42,5 +53,10 @@ function meeting_node_builder($entity_type, NodeInterface $node, &$form, FormSta
     ->getStorage('taxonomy_term')
     ->load($type_of_meeting_id);
   $name_of_meeting = $referenced_tag->name->value;
-  $node->setTitle($name_of_meeting.' on '.$date_of_meeting->format('l, j F Y'));
+  if ($date_of_meeting instanceof DrupalDateTime) {
+    $node->setTitle($name_of_meeting . ' on ' . $date_of_meeting->format('l, j F Y'));
+  }
+  else {
+    $form_state->setErrorByName('field_meeting_date', "Oops! I didn't understand that date.");
+  }
 }
