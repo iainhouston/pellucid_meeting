@@ -53,7 +53,7 @@ function meeting_node_builder($entity_type, NodeInterface $node, &$form, FormSta
     ->getStorage('taxonomy_term')
     ->load($type_of_meeting_id);
   $name_of_meeting = $referenced_tag->name->value;
-  if ($date_of_meeting instanceof DrupalDateTime) {
+  if ($date_of_meeting instanceof Drupal\Core\Datetime\DrupalDateTime) {
     $node->setTitle($name_of_meeting . ' on ' . $date_of_meeting->format('l, j F Y'));
   }
   else {
