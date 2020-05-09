@@ -2,6 +2,7 @@ name: Meeting
 description: 'Provide Meeting content type and related configuration. A meeting or some other significant event of the smaller authority. A summons to a meeting can be emailed to Councillors and others.'
 type: module
 core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - block
   - datetime
